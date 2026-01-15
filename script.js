@@ -41,3 +41,13 @@ function renderCharacters(data) {
 }
 
 loadAllCharacters();
+
+if (searchInput) {
+  searchInput.addEventListener("input", function () {
+    const keyword = this.value.toLowerCase();
+    const filtered = allCharacters.filter(char =>
+      char.name.toLowerCase().includes(keyword)
+    );
+    renderCharacters(filtered);
+  });
+}
